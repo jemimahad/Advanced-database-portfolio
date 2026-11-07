@@ -20,3 +20,23 @@ SELECT status, COUNT(*) AS total_orders
 FROM orders
 GROUP BY status
 ORDER BY total_orders DESC;
+-- Optimisation test: orders for one customer
+
+-- Step 1: BEFORE the index (shows Seq Scan on orders)
+EXPLAIN ANALYZE
+SELECT o.order_id, o.order_date, SUM(oi.quantity * oi.unit_price)
+FROM orders o
+JOIN order_item oi ON oi.order_id = o.order_id
+WHERE o.customer_id = 150
+GROUP BY o.order_id, o.order_date;
+
+-- Step 2: create the index
+CREATE INDEX idx_orders_customer_id ON orders(customer_id);
+
+-- Step 3: AFTER the index (same query, shows Bitmap Index Scan)
+EXPLAIN ANALYZE
+SELECT o.order_id, o.order_date, SUM(oi.quantity * oi.unit_price)
+FROM orders o
+JOIN order_item oi ON oi.order_id = o.order_id
+WHERE o.customer_id = 150
+GROUP BY o.order_id, o.order_date;
