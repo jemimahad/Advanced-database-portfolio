@@ -17,8 +17,8 @@ CREATE TABLE supplier (
 CREATE TABLE product (
   product_id SERIAL PRIMARY KEY,
   name VARCHAR(120) NOT NULL,
-  category_id INT REFERENCES category,
-  supplier_id INT REFERENCES supplier,
+  category_id INT NOT NULL REFERENCES category,
+  supplier_id INT NOT NULL REFERENCES supplier,
   price NUMERIC(10,2) CHECK (price > 0),
   stock INT CHECK (stock >= 0)
 );
