@@ -14,10 +14,10 @@ https://dbfiddle.uk/FJ-T4fo6
 | Folder | Activity | Status |
 |---|---|---|
 | [portfolio-1-database-design](portfolio-1-database-design) | Database Design and Modelling | Complete |
-| portfolio-2-query-optimisation | Query Processing and Optimisation | In progress |
-| portfolio-3-transactions-concurrency | Transactions and Concurrency | Not started |
-| portfolio-4-nosql | NoSQL and Advanced Data Models | Not started |
-| portfolio-5-distributed-cloud | Distributed and Cloud Database Exercise | Not started |
+| portfolio-2-query-optimisation | Query Processing and Optimisation | complete |
+| portfolio-3-transactions-concurrency | Transactions and Concurrency | complete |
+| portfolio-4-nosql | NoSQL and Advanced Data Models | complete |
+| portfolio-5-distributed-cloud | Distributed and Cloud Database Exercise | complete |
 
 ## Tools
 PostgreSQL, dbdiagram.io, GitHub. Details of AI use are declared in each portfolio README.
